@@ -1,0 +1,16 @@
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/johanbrandhorst/grpc-web-go-react-example/gen
+plugins:
+  - remote: buf.build/timostamm/plugins/protobuf-ts:v2.4.0-1
+    out: ./frontend/gen/
+  - remote: buf.build/protocolbuffers/plugins/go:v1.28.0-1
+    out: ./gen
+    opt:
+      - paths=source_relative
+  - remote: buf.build/grpc/plugins/go:v1.2.0-1
+    out: ./gen
+    opt:
+      - paths=source_relative
